@@ -1,7 +1,18 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">﻿
+
+<nav>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="{% url 'music:index' %}">RandomApp</a>
+		</div>
+	</div>
+</nav>
 {% if all_albums %}	
 	<ul>
 		{% for album in all_albums %}
-		<li><a href="{% url 'detail' album_id=album.id %}">{{album.title}}</a></li>
+		<li><a href="{% url 'music:detail' album_id=album.id %}">{{album.title}}</a></li>
 		{% endfor %}
 	</ul>
 {% else %}
